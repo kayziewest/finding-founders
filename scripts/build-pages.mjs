@@ -10,6 +10,7 @@ function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.
 for(const file of walk(out)){
  if(!/\.(html|css|js)$/.test(file))continue;
  let s=fs.readFileSync(file,'utf8');
+ if(file.endsWith('.html'))s=s.replaceAll('/assets/people.css','/assets/people.css?v=mobile-20260918');
  s=s.replaceAll('https://finding-founders.ai-f0dc.chatgpt.site','https://kayziewest.github.io/finding-founders');
  if(file.endsWith('.html'))s=s.replace(/((?:href|src|poster|action)=["'])\/(?!\/)/g,`$1${base}/`);
  else if(file.endsWith('.js'))s=s.replace(/(["'`])\/(?=(?:assets|rsvp|api|activities|gatherings|notes|about|founders-fridays)(?:\/|["'`]))/g,`$1${base}/`);
