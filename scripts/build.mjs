@@ -1,0 +1,2 @@
+import fs from 'node:fs';
+fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist/server',{recursive:true});fs.cpSync('src/public','dist/client',{recursive:true});fs.copyFileSync('src/worker.js','dist/server/index.js');fs.mkdirSync('dist/.openai',{recursive:true});fs.copyFileSync('.openai/hosting.json','dist/.openai/hosting.json');fs.cpSync('drizzle','dist/.openai/drizzle',{recursive:true});console.log('Site and RSVP worker built.');

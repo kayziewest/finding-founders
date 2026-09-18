@@ -1,0 +1,7 @@
+work/
+.sites-runtime/
+.DS_Store
+outputs/*.zip
+outputs/
+node_modules/
+_site/
